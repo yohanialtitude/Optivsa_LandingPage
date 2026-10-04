@@ -1,0 +1,143 @@
+/* @import url() FONT IMPORTS MUST ALWAYS BE AT THE VERY TOP OF THIS FILE, ABOVE THE TAILWIND IMPORTS — DO NOT DELETE THIS COMMENT */
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* CRITICAL: THE FOLLOWING TAILWIND IMPORTS MUST NEVER BE DELETED OR REORDERED — DO NOT DELETE THIS COMMENT */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* END TAILWIND IMPORTS — ALL OTHER CSS MUST GO BELOW THIS LINE */
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+  background-color: #ffffff;
+  color: #14090c;
+  font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+::selection {
+  background: rgba(246, 48, 73, 0.16);
+  color: #3a0f1f;
+}
+*:focus-visible {
+  outline: 2px solid #f63049;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+@media (hover: hover) and (pointer: fine) {
+  .optivsa-cursor-active,
+  .optivsa-cursor-active a,
+  .optivsa-cursor-active button,
+  .optivsa-cursor-active [role='button'],
+  .optivsa-cursor-active input,
+  .optivsa-cursor-active textarea,
+  .optivsa-cursor-active select {
+    cursor: none;
+  }
+}
+.tech-grid {
+  background-image: linear-gradient(to right, rgba(138, 36, 75, 0.10) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(138, 36, 75, 0.10) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+.tech-grid-fine {
+  background-image: linear-gradient(to right, rgba(138, 36, 75, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(138, 36, 75, 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+.glass {
+  background: rgba(255, 255, 255, 0.62);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid rgba(138, 36, 75, 0.1);
+}
+.glass-strong {
+  background: rgba(255, 255, 255, 0.84);
+  backdrop-filter: blur(24px) saturate(150%);
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
+  border: 1px solid rgba(138, 36, 75, 0.12);
+}
+.mono-label {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+@keyframes dashFlow {
+  to {
+    stroke-dashoffset: -240;
+  }
+}
+.flow-line {
+  stroke-dasharray: 3 9;
+  animation: dashFlow 6s linear infinite;
+}
+.flow-line-slow {
+  stroke-dasharray: 2 14;
+  animation: dashFlow 14s linear infinite;
+}
+@keyframes drift {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -10px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+.drift {
+  animation: drift 9s ease-in-out infinite;
+  will-change: transform;
+}
+@keyframes marqueeScroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+.marquee-track {
+  width: max-content;
+  animation: marqueeScroll 46s linear infinite;
+  will-change: transform;
+}
+.marquee-track.marquee-reverse {
+  animation-direction: reverse;
+  animation-duration: 58s;
+}
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track {
+  animation-play-state: paused;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .flow-line,
+  .flow-line-slow,
+  .drift,
+  .marquee-track {
+    animation: none !important;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
